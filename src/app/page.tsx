@@ -1,65 +1,86 @@
 import Image from "next/image";
+import ExperienceCard from "./components/experience-card";
+import EducationCard from "./components/education-card";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="flex-1 flex flex-col gap-24 pt-14">
+      <div className="flex justify-between">
+        <div>
+          <div className="flex items-center gap-2">
+            <h1 className="text-6xl font-semibold">Hi, I'm Pranav</h1>
+            <Image
+              src="/hi.svg"
+              alt="Next.js logo"
+              width={100}
+              height={20}
+              priority
+            />
+          </div>
+          <p className="max-w-lg">
+            Software Engineer at Solytics Partners. I build web applications
+            with a focus on performance and scalability.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="border-2 size-36 rounded-full"></div>
+      </div>
+
+      <div>
+        <h3 className="text-xl font-semibold">About</h3>
+        <p className="text-sm text-gray-400">
+          I'm a Software Engineer with 2.5 years of experience, currently
+          working in the Platform Engineering team at Humanforce. I specialise
+          in building scalable systems, and solving platform-wide productivity
+          and performance challenges across products like Humanforce HR, and
+          Workforce Management - used by 600,000+ users. I hold a Bachelor's
+          degree in Computer Applications from Pune University & I am pursuing
+          Master's in Computer Applications from Indian Institute of Technology,
+          Patna.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="text-xl font-semibold mb-2">Work Experience</h3>
+        <div className="flex flex-col gap-2">
+          <ExperienceCard
+            orgName="Solytics Partners"
+            duration="Feb 2026 - Present"
+            role="Software Engineer"
+          />
+          <ExperienceCard
+            orgName="Olatech Solutions"
+            duration="Jul 2025 - Feb 2026"
+            role="Frontend Developer"
+          />
+          <ExperienceCard
+            orgName="Rajavi Technologies"
+            duration="May 2023 - Jul 2025"
+            role="Frontend Developer"
+          />
         </div>
-      </main>
+      </div>
+
+      <div>
+        <h3 className="text-xl font-semibold mb-2">Education</h3>
+        <div className="flex flex-col gap-3">
+          <EducationCard
+            uninversityName="Savitribai Phule Pune University"
+            duration="Apr 2020 - Mar 2023"
+            degree="Bachelor of Computer Applications"
+          >
+            <ul className="text-sm list-disc ml-4">
+              <li>GPA 7.4</li>
+            </ul>
+          </EducationCard>
+          <EducationCard
+            uninversityName="Indian Institute of Technology, Patna"
+            duration="Jan 2026 - Present"
+            degree="Master of Computer Applications"
+          >
+            <></>
+          </EducationCard>
+        </div>
+      </div>
     </div>
   );
 }
