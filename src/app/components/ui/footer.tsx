@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="flex items-center justify-between py-8">
+    <div className="flex items-center border-t justify-between py-8 mt-24">
       <p className="flex items-center gap-1">
         <Copyright />
         2026 Pranav Pokale
