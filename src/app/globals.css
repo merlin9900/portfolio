@@ -44,3 +44,21 @@ span {
 .test {
   @apply border border-red-500;
 }
+
+/* Make react-github-calendar responsive inside the #github-stats container
+   - Target SVG and calendar wrapper to ensure they scale to the container width
+   - Use !important to override inline widths coming from the library if needed
+*/
+#github-stats {
+  /* ensure the section doesn't force horizontal scrolling */
+  max-width: 100%;
+}
+
+#github-stats svg,
+#github-stats .react-activity-calendar,
+#github-stats .github-calendar {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}

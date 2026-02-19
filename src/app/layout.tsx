@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${grotesk.variable} ${jetbrains.variable} antialiased bg-zinc-50 font-sans dark:bg-black`}
+        className={`${grotesk.variable} ${jetbrains.variable} antialiased bg-zinc-50 font-sans dark:bg-black p-4`}
       >
         <MaxWidthWrapper>
           <div className="flex-1">{children}</div>
