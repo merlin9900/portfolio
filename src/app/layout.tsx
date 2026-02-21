@@ -3,6 +3,7 @@ import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import MaxWidthWrapper from "./components/ui/max-width-wrapper";
 import Footer from "./components/ui/footer";
+import Providers from "./components/providers/query-provider";
 
 const grotesk = Space_Grotesk({
   variable: "--font-grotesk",
@@ -29,11 +30,13 @@ export default function RootLayout({
       <body
         className={`${grotesk.variable} ${jetbrains.variable} antialiased bg-zinc-50 font-sans dark:bg-black p-4`}
       >
-        <MaxWidthWrapper>
-          <div className="flex-1">{children}</div>
+        <Providers>
+          <MaxWidthWrapper>
+            <div className="flex-1">{children}</div>
 
-          <Footer />
-        </MaxWidthWrapper>
+            <Footer />
+          </MaxWidthWrapper>
+        </Providers>
       </body>
     </html>
   );

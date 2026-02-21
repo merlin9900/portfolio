@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowUpRight, Github } from "lucide-react";
 import Link from "next/link";
 
@@ -18,13 +20,21 @@ const ProjectCard = ({
 }: ProjectCardPropps) => {
   return (
     // <Link href={url}>
-    <div className="flex flex-col gap-1.5 group ">
+    <div
+      onClick={() => window.open(url, "_blank")}
+      className="flex flex-col gap-1.5 group "
+    >
       <div className="flex items-end justify-between">
         <h4 className="text-lg flex items-center gap-2 group-hover:underline underline-offset-2 font-semibold">
           {name}{" "}
           <ArrowUpRight className="size-4 text-accent/30 transition-all group-hover:text-accent duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:scale-110" />
         </h4>
-        <Link href={githubUrl} target="_blank" className="hover:text-accent ">
+        <Link
+          href={githubUrl}
+          onClick={(e) => e.stopPropagation()}
+          target="_blank"
+          className="hover:text-accent hover:scale-110 transition-all duration-200"
+        >
           <Github />
         </Link>
       </div>
