@@ -55,10 +55,10 @@ export default function SpotifyCurrentlyPalying({
 
         <div className="flex flex-col justify-between flex-1">
           <div>
-            <p className="text-sm flex items-center justify-between gap-4 text-green-400 mb-1">
-              {track.isPlaying ? "Currently Playing" : "Last Played"}
+            <div className="text-sm flex items-center justify-between gap-4 text-green-400 mb-1">
+              <p>{track.isPlaying ? "Currently Playing" : "Last Played"}</p>
               {track.isPlaying && <MusicBars />}
-            </p>
+            </div>
 
             <h3 className="text-xl font-semibold text-white">{track.song}</h3>
 

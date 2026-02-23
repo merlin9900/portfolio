@@ -5,6 +5,12 @@ import SpotifyCurrentlyPalying from "./ui/spotify-currently-playing";
 import SpotifyCard from "./ui/spotify-card";
 import SpotifyIdleCard from "./ui/spotify-idle-card";
 
+type Song = {
+  artist: string;
+  image: string;
+  name: string;
+};
+
 export default function SpotifySection() {
   const { data: nowPlaying } = useQuery({
     queryKey: ["spotify-now"],
@@ -12,17 +18,15 @@ export default function SpotifySection() {
     refetchInterval: 15000,
   });
 
-  const { data: recent } = useQuery({
-    queryKey: ["spotify-recent"],
-    queryFn: () => fetch("/api/spotify/recent").then((r) => r.json()),
-  });
+  // const { data: recent } = useQuery({
+  //   queryKey: ["spotify-recent"],
+  //   queryFn: () => fetch("/api/spotify/recent").then((r) => r.json()),
+  // });
 
   const { data: topTracks } = useQuery({
     queryKey: ["spotify-top"],
     queryFn: () => fetch("/api/spotify/top-tracks").then((r) => r.json()),
   });
-
-  console.log(nowPlaying);
 
   return (
     <section className="flex flex-col gap-2 pt-24">
@@ -45,7 +49,7 @@ export default function SpotifySection() {
       )}
 
       {/* Recently Played */}
-      <div>
+      {/* <div>
         <h4 className="text-sm text-gray-400 mb-2">Recently Played</h4>
         <div className="flex gap-3">
           {recent?.map((song: any, i: number) => (
@@ -57,13 +61,13 @@ export default function SpotifySection() {
             />
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Top Tracks */}
       <div>
         <h4 className="text-sm text-gray-400 mb-2">Top Tracks</h4>
         <div className="flex gap-3">
-          {topTracks?.map((song: any, i: number) => (
+          {topTracks?.map((song: Song, i: number) => (
             <SpotifyCard
               key={i}
               artist={song.artist}

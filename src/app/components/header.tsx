@@ -6,7 +6,7 @@ const Header = () => {
     <div className="flex justify-between">
       <div>
         <div className="flex items-center gap-2">
-          <h1 className="text-6xl font-semibold">Hi, I'm Pranav</h1>
+          <h1 className="text-6xl font-semibold">Hi, I&apos;m Pranav</h1>
           <DiscordStatus />
           <Image src="/hi.svg" alt="Hi" width={100} height={20} priority />
         </div>
