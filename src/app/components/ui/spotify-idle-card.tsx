@@ -8,7 +8,7 @@ export default function SpotifyIdleCard() {
       <div className="flex gap-6 items-center">
         <div className="size-35 rounded-lg bg-zinc-900 flex items-center justify-center border border-zinc-800">
           <Image
-            src="/spotify.svg"
+            src="/spotify.png"
             alt="Spotify"
             width={60}
             height={60}
