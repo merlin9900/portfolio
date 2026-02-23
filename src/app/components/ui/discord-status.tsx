@@ -86,23 +86,33 @@ function DiscordHoverCard({ data }: { data: LanyardData }) {
 
   return (
     <div className="w-96 p-4 bg-[#2b2d31] rounded-xl shadow-xl border border-neutral-700 flex flex-col gap-4">
-      <div className="flex items-center gap-3 ">
+      <div className="flex items-center justify-between pr-3">
+        <div className="flex items-center gap-3 ">
+          <Image
+            src={avatar}
+            alt="Discord avatar"
+            width={48}
+            height={48}
+            unoptimized
+          />
+
+          <div>
+            <p className="text-white font-medium">
+              {data.discord_user.username}
+            </p>
+            <p className="text-xs text-gray-400 capitalize">
+              {data.discord_status}
+            </p>
+          </div>
+        </div>
         <Image
-          src={avatar}
-          alt="Discord avatar"
-          width={48}
-          height={48}
+          src={"/discord.svg"}
+          alt="Discord"
+          width={24}
+          height={24}
           unoptimized
         />
-
-        <div>
-          <p className="text-white font-medium">{data.discord_user.username}</p>
-          <p className="text-xs text-gray-400 capitalize">
-            {data.discord_status}
-          </p>
-        </div>
       </div>
-
       {data.spotify && <DiscordSpotifyCard spotify={data.spotify} />}
     </div>
   );
@@ -113,7 +123,7 @@ function DiscordSpotifyCard({
 }: {
   spotify: NonNullable<LanyardData["spotify"]>;
 }) {
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState<number>(() => Date.now());
 
   useEffect(() => {
     const interval = setInterval(() => setNow(Date.now()), 1000);
